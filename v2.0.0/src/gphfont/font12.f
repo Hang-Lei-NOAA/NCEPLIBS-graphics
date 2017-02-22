@@ -1,0 +1,149 @@
+       BLOCK DATA FONT12
+C                                                3-OCT-1995/DSS
+C
+C          DATA SET PHCHARAC   AT LEVEL 003 AS OF 05/11/93
+C$$$  SUBPROGRAM DOCUMENTATION BLOCK
+C                .      .    .                                       .
+C SUBPROGRAM:    FONT12      SYMBOL DEFS (FONT12) FOR PRTITL
+C   PRGMMR: SHIMOMURA        ORG: NMC41       DATE:95-10-03
+C
+C ABSTRACT: FONT12 -- CHARACTER SET_12 DEFINITION;
+C   IN RASTER-GRAPHICS, BIT-MAPPED FORM;
+C     LOOK12 OR  CD12=(-4X4) 26 SCAN LINE CONTOUR VECTORS
+C
+C PROGRAM HISTORY LOG:
+C   ??-??-??  ORIGINAL AUTHOR: GLORIA DENT (BEFORE 1974)
+C   93-05-11  LILLY UPDATES DOCBLOCK.
+C   93-06-03  HENRICHSEN
+C   93-10-26  SHIMOMURA -- CONVERTING FROM IBM-ASM INTO CRAY-FORTRAN
+C                          BLOCK DATA;
+C                          CHANGED THE ORDER FROM EBCDIC TO ASCII
+C                          SORTING SEQ.
+C
+C USAGE:   linkage-edit the member=PHCHARAC 
+C   INPUT ARGUMENT LIST:
+C
+C     ... THIS MEMBER IS NOT CALLED; THE OBJECT CODE IS LINKAGE-EDITED
+C
+C REMARKS: 
+C     ... THE IBM-ASM VERSION IS LIKE A BLOCK DATA SUBPROGRAM 
+C     ...                     WHICH DEFINED COMMON /CHARAC/
+C     ... THIS CRAY-FORTRAN VERSION DEFINES ONLY ONE OF THE 50 FONTS,
+C     ...    NAMELY, FONT12 =(-4X4) 26 SCAN LINE CONTOUR VECTORS
+C     ... COMMON /FONS_12/ KHTITLE_12,NUMSET_12,NCHS_12,NWPC_12,
+C     ...1                 KIXTB_12,KDF_12
+C             
+C
+C ATTRIBUTES:
+C   LANGUAGE: CRAY FORTRAN
+C   MACHINE:  CRAY4
+C
+C$$$
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 04/17/93
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 06/05/89
+C          DATA SET PHCHARAC   AT LEVEL 006 AS OF 10/03/85
+C ...         TITLE 'COMMON /CHARAC/DEFSYM -- SYMBOL DEFS FOR PRTITL'
+C ...         CHARAC   CSECT
+C
+C   THIS CHARH SET IS PHCHARAC FOUND ON DPH.PAN.SOURCE.A
+C   UPDATED 03 OCT 1985 BY PETER HENRICHSEN TO :
+C    ADD NOAA DUCK AND MEDIUM DUCK TO CD10.
+C    ADD 24 DOT DUCKLING TO CD1.
+C    ADD ALPHABET, ' ', '.' AND '/' TO CD19.
+C   MODIFIED BY GLORIA AND PETER TO ADD TROPICAL STORM SYMBOL IN CD10
+C   01 OCT 1982.
+C
+C
+C     LOOK12 OR  CD12=(-4X4) 26 SCAN LINE CONTOUR VECTORS
+C
+       COMMON /FONS_12/ KHTITLE_12,NUMSET_12,NCHS_12,NWPC_12,KIXTB_12,
+     1                  KDF_12
+       CHARACTER*8    KHTITLE_12
+       INTEGER*8    NUMSET_12
+       INTEGER*8    NWPC_12
+       INTEGER*8    NCHS_12
+
+       INTEGER*8    KIXTB_12(8)
+
+       INTEGER*8    KDF_12(1,26)
+
+       INTEGER*8    KDF_12A(1,16)
+       INTEGER*8    KDF_12B(1,10)
+       EQUIVALENCE (KDF_12(1,1), KDF_12A(1,1))    !...  1+16 = 17 
+       EQUIVALENCE (KDF_12(1,17),KDF_12B(1,1))    !... 17+10 = 27
+
+C     LOOK12 OR  CD12=(-4X4) 26 SCAN LINE CONTOUR VECTORS
+C ...  COMMON /FONS_12/ KHTITLE_12,NUMSET_12,NCHS_12,NWPC_12,KIXTB_12,KDF_12
+       DATA    KHTITLE_12 / "VEC_4PEL" /
+       DATA    NUMSET_12  / 12 /
+       DATA    NWPC_12    /  1 /        !... WORDS PER CHARACTER
+       DATA    NCHS_12    / 26 /        !... NO. OF CHAR DEFS IN SET_12
+C                     ...   COL 12345678
+       DATA         KIXTB_12 / X'0102030405060708',
+     2                         X'090A0B0C0D0E0F10',
+     3                         X'1112131415161718',
+     4                         X'191A000000000000',
+     5                         X'0000000000000000',
+     6                         X'0000000000000000',
+     7                         X'0000000000000000',
+     8                         X'0000000000000000'  /
+
+C     LOOK12 OR  CD12=(-4X4) 26 SCAN LINE CONTOUR VECTORS
+      DATA     KDF_12A     /
+C ... CD12     DC    XL1'01'
+     A X'F000000000000000',
+C ...          DC    XL1'02'
+     A X'30C0000000000000',
+C ...          DC    XL1'03'
+     A X'1060800000000000',
+C ...          DC    XL1'04'
+     A X'1020408000000000',
+C ...          DC    XL1'05'
+     A X'1020204000000000',
+C ...          DC    XL1'06'
+     A X'1010202000000000',
+C ...          DC    XL1'07'
+     A X'1010101000000000',
+C ...          DC    XL1'08'
+     A X'8080404000000000',
+C ...          DC    XL1'09'
+     A X'8040402000000000',
+C ...          DC    XL1'0A'
+     A X'8040201000000000',
+C ...          DC    XL1'0B'
+     A X'8060100000000000',
+C ...          DC    XL1'0C'
+     A X'C030000000000000',
+C ...          DC    XL1'0D'
+     A X'F000000000000000',
+C ...          DC    XL1'0E'
+     A X'3000000000000000',
+C ...          DC    XL1'0F'
+     A X'3000000000000000',
+C ...          DC    XL1'10'
+     A X'1020000000000000'   /
+
+
+      DATA     KDF_12B     /
+C ...          DC    XL1'11'
+     A X'1020000000000000',
+C ...          DC    XL1'12'
+     A X'1020000000000000',
+C ...          DC    XL1'13'
+     A X'1010000000000000',
+C ...          DC    XL1'14'
+     A X'1010000000000000',
+C ...          DC    XL1'15'
+     A X'8080000000000000',
+C ...          DC    XL1'16'
+     A X'8040000000000000',
+C ...          DC    XL1'17'
+     A X'8040000000000000',
+C ...          DC    XL1'18'
+     A X'8040000000000000',
+C ...          DC    XL1'19'
+     A X'C000000000000000',
+C ...          DC    XL1'1A'
+     A X'C000000000000000'  /
+
+       END

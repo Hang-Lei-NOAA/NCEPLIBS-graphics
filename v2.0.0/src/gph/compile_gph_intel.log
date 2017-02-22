@@ -1,0 +1,135 @@
+Currently Loaded Modulefiles:
+  1) modules/3.2.6.7
+  2) eswrap/1.3.3-1.020200.1278.0
+  3) switch/1.0-1.0502.57058.1.58.ari
+  4) /opt/cray/craype/default/modulefiles/craype-network-aries
+  5) ncep/1.0
+  6) craype-sandybridge
+  7) xt-lsfhpc/9.1.3
+  8) prod_util/1.0.5
+  9) imagemagick-intel-sandybridge/6.8.3
+ 10) GrADS/2.0.2
+ 11) craype/2.3.0
+ 12) cray-libsci/13.0.3
+ 13) udreg/2.3.2-1.0502.9889.2.20.ari
+ 14) ugni/6.0-1.0502.10245.9.9.ari
+ 15) pmi/5.0.6-1.0000.10439.140.2.ari
+ 16) dmapp/7.0.1-1.0502.10246.8.47.ari
+ 17) gni-headers/4.0-1.0502.10317.9.2.ari
+ 18) xpmem/0.1-2.0502.57015.1.15.ari
+ 19) dvs/2.5_0.9.0-1.0502.1958.2.55.ari
+ 20) alps/5.2.3-2.0502.9295.14.14.ari
+ 21) rca/1.0.0-2.0502.57212.2.56.ari
+ 22) atp/1.8.1
+ 23) PrgEnv-intel/5.2.56
+ 24) intel/16.3.210
++ '[' -f ./libgph_v2.0.0_8.a ']'
++ make
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C afnaij.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C afostx.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C asc2cdc.F
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C asc2isp.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C bin2ch.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C bin2eb.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C cdc2asc.F
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C centre.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C chr2hex.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C clabel.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C closec.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C closed.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C compl.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C consol.F
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C dayowk.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C duck.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C eb2asc.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C echbar.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C endmap.F
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C format.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C gtapil.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C gtargs.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C hafpakra.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C hilo.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C ij2uor.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C int2ch.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C isdigit.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C iw3get.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C looktlb.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C low2up.f
+icc -c -O -g -traceback -C mask.c
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C movbitz.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C movch.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C putl_cs.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C putl_fm.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C putl_wr.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format    putlab.F
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C qtrpakra.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C savarg.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C strmovv.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C truij.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C trull.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C uor2dot.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C updatr.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C w3fp02.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C w3fs23.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C wndbrk.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C wndcon.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C wndirdig.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C wndirt.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C xasc2asc.f
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -integer-size 64 -real-size 64 -convert big_endian -assume byterecl -assume nobscc -assume noold_ldout_format -C zplot.f
+ar -crv libgph_v2.0.0_8.a afnaij.o afostx.o asc2cdc.o asc2isp.o bin2ch.o bin2eb.o cdc2asc.o centre.o chr2hex.o clabel.o closec.o closed.o compl.o consol.o dayowk.o duck.o eb2asc.o echbar.o endmap.o format.o gtapil.o gtargs.o hafpakra.o hilo.o ij2uor.o int2ch.o isdigit.o iw3get.o looktlb.o low2up.o mask.o movbitz.o movch.o putl_cs.o putl_fm.o putl_wr.o putlab.o qtrpakra.o savarg.o strmovv.o truij.o trull.o uor2dot.o updatr.o w3fp02.o w3fs23.o wndbrk.o wndcon.o wndirdig.o wndirt.o xasc2asc.o zplot.o
+a - afnaij.o
+a - afostx.o
+a - asc2cdc.o
+a - asc2isp.o
+a - bin2ch.o
+a - bin2eb.o
+a - cdc2asc.o
+a - centre.o
+a - chr2hex.o
+a - clabel.o
+a - closec.o
+a - closed.o
+a - compl.o
+a - consol.o
+a - dayowk.o
+a - duck.o
+a - eb2asc.o
+a - echbar.o
+a - endmap.o
+a - format.o
+a - gtapil.o
+a - gtargs.o
+a - hafpakra.o
+a - hilo.o
+a - ij2uor.o
+a - int2ch.o
+a - isdigit.o
+a - iw3get.o
+a - looktlb.o
+a - low2up.o
+a - mask.o
+a - movbitz.o
+a - movch.o
+a - putl_cs.o
+a - putl_fm.o
+a - putl_wr.o
+a - putlab.o
+a - qtrpakra.o
+a - savarg.o
+a - strmovv.o
+a - truij.o
+a - trull.o
+a - uor2dot.o
+a - updatr.o
+a - w3fp02.o
+a - w3fs23.o
+a - wndbrk.o
+a - wndcon.o
+a - wndirdig.o
+a - wndirt.o
+a - xasc2asc.o
+a - zplot.o
+ranlib libgph_v2.0.0_8.a
++ mkdir -p ../../intel
++ cp ./libgph_v2.0.0_8.a ../../intel

@@ -1,0 +1,49 @@
+Currently Loaded Modulefiles:
+  1) modules/3.2.6.7
+  2) eswrap/1.3.3-1.020200.1278.0
+  3) switch/1.0-1.0502.57058.1.58.ari
+  4) /opt/cray/craype/default/modulefiles/craype-network-aries
+  5) ncep/1.0
+  6) craype-sandybridge
+  7) xt-lsfhpc/9.1.3
+  8) prod_util/1.0.5
+  9) imagemagick-intel-sandybridge/6.8.3
+ 10) GrADS/2.0.2
+ 11) craype/2.3.0
+ 12) cray-libsci/13.0.3
+ 13) udreg/2.3.2-1.0502.9889.2.20.ari
+ 14) ugni/6.0-1.0502.10245.9.9.ari
+ 15) pmi/5.0.6-1.0000.10439.140.2.ari
+ 16) dmapp/7.0.1-1.0502.10246.8.47.ari
+ 17) gni-headers/4.0-1.0502.10317.9.2.ari
+ 18) xpmem/0.1-2.0502.57015.1.15.ari
+ 19) dvs/2.5_0.9.0-1.0502.1958.2.55.ari
+ 20) alps/5.2.3-2.0502.9295.14.14.ari
+ 21) rca/1.0.0-2.0502.57212.2.56.ari
+ 22) atp/1.8.1
+ 23) PrgEnv-intel/5.2.56
+ 24) intel/16.3.210
++ '[' -f ./libutil_v2.0.0.a ']'
++ make
+icc -c -std=c99 -O -g -traceback -C  dbgprtz.c
+icc -c -std=c99 -O -g -traceback -C  movbitz.c
+ifort -D_LITTLE_ENDIAN -O -g -traceback -C -integer-size 64 -real-size 64 -assume byterecl -convert big_endian -assume nobscc -assume noold_ldout_format  -c -o sbytesccs.o sbytesccs.f
+icc -c -std=c99 -O -g -traceback -C  swap_bytes_in_place.c
+icc -c -std=c99 -O -g -traceback -C  swap_bytes_on_copy.c
+ar -crv libutil_v2.0.0.a dbgprtz.o movbitz.o sbytesccs.o swap_bytes_in_place.o swap_bytes_on_copy.o
+a - dbgprtz.o
+a - movbitz.o
+a - sbytesccs.o
+a - swap_bytes_in_place.o
+a - swap_bytes_on_copy.o
+ranlib libutil_v2.0.0.a
+ifort -o test_swap -D_LITTLE_ENDIAN -O -g -traceback -C -integer-size 64 -real-size 64 -assume byterecl -convert big_endian -assume nobscc -assume noold_ldout_format test_driver_swap_routines.f -L./ -lutil_v2.0.0
+ifort -o test_movbits_simple -D_LITTLE_ENDIAN -O -g -traceback -C -integer-size 64 -real-size 64 -assume byterecl -convert big_endian -assume nobscc -assume noold_ldout_format test_driver_movbitz.f -L./ -lutil_v2.0.0
+icc -o test_movbits_complex -std=c99 -O -g -traceback -C  test_driver_movbitz.c -L./ -lutil_v2.0.0
++ mkdir -p ../../intel
++ cp ./libutil_v2.0.0.a ../../intel
++ make clean
+/bin/rm -f test_swap \
+                   test_movbits_simple \
+                   test_movbits_complex \
+                   libutil_v2.0.0.a *.o

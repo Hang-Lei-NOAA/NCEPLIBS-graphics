@@ -1,0 +1,215 @@
+       BLOCK DATA FONT39
+C                                                 9-Oct-1996/DSS
+C
+C          DATA SET PHCHARAC   AT LEVEL 003 AS OF 05/11/93
+C$$$  SUBPROGRAM DOCUMENTATION BLOCK
+C                .      .    .                                       .
+C SUBPROGRAM:    FONT39      SYMBOL DEFS (FONT39) FOR PRTITL
+C   PRGMMR: SHIMOMURA        ORG: W/NP12        DATE:96-10-09
+C
+C ABSTRACT: FONT39 -- CHARACTER SET_39 DEFINITION;
+C   IN RASTER-GRAPHICS, BIT-MAPPED FORM;
+C      LOOKAROW OR  CD39=(16X16)  36 DIRECTIONAL ARROWS
+C
+C PROGRAM HISTORY LOG:
+C   ??-??-??  ORIGINAL AUTHOR: GLORIA DENT (BEFORE 1974)
+C   93-05-11  LILLY UPDATES DOCBLOCK.
+C   93-06-03  HENRICHSEN
+C   96-10-01  SHIMOMURA -- CONVERTING FROM IBM-ASM INTO CRAY-FORTRAN
+C                          BLOCK DATA;
+C                          CHANGED THE ORDER FROM EBCDIC TO ASCII
+C                          SORTING SEQ.
+C
+C USAGE:   linkage-edit the member=PHCHARAC 
+C   INPUT ARGUMENT LIST:
+C
+C     ... THIS MEMBER IS NOT CALLED; THE OBJECT CODE IS LINKAGE-EDITED
+C
+C REMARKS: 
+C     ... THE IBM-ASM VERSION IS LIKE A BLOCK DATA SUBPROGRAM 
+C     ...                     WHICH DEFINED COMMON /CHARAC/
+C     ... THIS CRAY-FORTRAN VERSION DEFINES ONLY ONE OF THE 50 FONTS,
+C      LOOKAROW OR  CD39=(16X16)  36 DIRECTIONAL ARROWS
+C     ... COMMON /FONS_39/ KHTITLE, NUMSET,NCHS_39,NWPC_39,KIXTB_39,
+C     ...1                 KDF_39
+C             
+C
+C ATTRIBUTES:
+C   LANGUAGE: CRAY FORTRAN
+C   MACHINE:  CRAY4
+C
+C$$$
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 04/17/93
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 06/05/89
+C          DATA SET PHCHARAC   AT LEVEL 006 AS OF 10/03/85
+C ...         TITLE 'COMMON /CHARAC/DEFSYM -- SYMBOL DEFS FOR PRTITL'
+C ...         CHARAC   CSECT
+C
+C   THIS CHARH SET IS PHCHARAC FOUND ON DPH.PAN.SOURCE.A
+C   UPDATED 03 OCT 1985 BY PETER HENRICHSEN TO :
+C    ADD NOAA DUCK AND MEDIUM DUCK TO CD10.
+C    ADD 24 DOT DUCKLING TO CD1.
+C    ADD ALPHABET, ' ', '.' AND '/' TO CD19.
+C   MODIFIED BY GLORIA AND PETER TO ADD TROPICAL STORM SYMBOL IN CD10
+C   01 OCT 1982.
+C
+C
+C      LOOKAROW OR  CD39=(16X16)  36 DIRECTIONAL ARROWS
+C
+       COMMON /FONS_39/ KHTITLE_39,NUMSET_39,NCHS_39,NWPC_39,KIXTB_39,
+     1                  KDF_39
+       CHARACTER*8    KHTITLE_39
+       INTEGER*8    NUMSET_39
+       INTEGER*8    NWPC_39
+       INTEGER*8    NCHS_39
+
+       INTEGER*8    KIXTB_39(8)
+
+       INTEGER*8    KDF_39(4,36)
+       INTEGER*8    KDF_39A(4,10)
+       INTEGER*8    KDF_39B(4,10)
+       INTEGER*8    KDF_39C(4,10)
+       INTEGER*8    KDF_39D(4,6)
+       EQUIVALENCE (KDF_39(1,1),KDF_39A(1,1))  		!... 1+10=11
+       EQUIVALENCE (KDF_39(1,11),KDF_39B(1,1))  	!...11+10=21
+       EQUIVALENCE (KDF_39(1,21),KDF_39C(1,1))  	!...21+10=31
+       EQUIVALENCE (KDF_39(1,31),KDF_39D(1,1))  	!...31+6 =37
+
+C ...  COMMON /FONS_39/ KHTITLE_39,NUMSET_39,NCHS_39,NWPC_39,KIXTB_39,KDF_39
+C      LOOKAROW OR  CD39=(16X16)  36 DIRECTIONAL ARROWS
+       DATA    KHTITLE_39 / "ARROWS36" /
+       DATA    NUMSET_39  / 39 /
+       DATA    NWPC_39    /  4 /        !... WORDS PER CHARACTER
+       DATA    NCHS_39    / 36 /        !... NO. OF CHAR DEFS IN SET_39
+C                     ...   COL 12345678
+       DATA         KIXTB_39 / X'0102030405060708',
+     2                         X'090A0B0C0D0E0F10',
+     3                         X'1112131415161718',
+     4                         X'191A1B1C1D1E1F20',
+     5                         X'2122232400000000',
+     6                         X'0000000000000000',
+     7                         X'0000000000000000',
+     8                         X'0000000000000000' /
+
+*     LOOKAROW OR  CD39=(16X16)  36 DIRECTIONAL ARROWS
+
+      DATA     KDF_39A     /
+C ... CD39     DC    XL1'01'                                         010 DIRA
+     A X'0000004000E001E0',X'02D004C800C00080',X'0180018001800100',
+     A X'0300030002000000',
+C ...          DC    XL1'02'                                         020 DIRA
+     A X'0000001000300070',X'00F00168024800C8',X'0086018001000300',
+     A X'0300060006000000',
+C ...          DC    XL1'03'                                         030 DIRA
+     A X'00000000007001F0',X'067000D000D00190',X'0180030003000600',
+     A X'06000C0008000000',
+C ...          DC    XL1'04'                                         040 DIRA
+     A X'00000000000003F8',X'0078007800F801C8',X'038807080E001C00',
+     A X'3800100000000000',
+C ...          DC    XL1'05'                                         050 DIRA
+     A X'00000000000003F8',X'0078007800F801C8',X'038807080E001C00',
+     A X'3800100000000000',
+C ...          DC    XL1'06'                                         060 DIRA
+     A X'0000000000000000',X'00FC001C007C01E8',X'07881E1078016000',
+     A X'0000000000000000',
+C ...          DC    XL1'07'                                         070 DIRA
+     A X'00000000000000E0',X'001E003C00F80390',X'1E20784060000000',
+     A X'0000000000000000',
+C ...          DC    XL1'08'                                         080 DIRA
+     A X'0000000000000020',X'0010000C007E07FC',X'6F08701000200000',
+     A X'0000000000000000',
+C ...          DC    XL1'09'                                         090 DIRA
+     A X'0000000000000020',X'00100008000CFFFE',X'FFFE000C00080010',
+     A X'0020000000000000',
+C ...          DC    XL1'0A'                                         100 DIRA
+     A X'0000000000000000',X'0000002070103F08',X'07FC007E000C0030',
+     A X'0040000000000000'  /
+
+
+      DATA     KDF_39B     /
+C ...          DC    XL1'0B'                                         110 DIRA
+     A X'0000000000000000',X'0000600078401E20',X'039000F8003C001E',
+     A X'00E0000000000000',
+C ...          DC    XL1'0C'                                         120 DIRA
+     A X'0000000000000000',X'600038101E100788',X'01E80078001C00FC',
+     A X'0000000000000000',
+C ...          DC    XL1'0D'                                         130 DIRA
+     A X'0000000010003800',X'1C000E0007080388',X'01C800F800780078',
+     A X'03F8000000000000',
+C ...          DC    XL1'0E'                                         140 DIRA
+     A X'0000000010003800',X'1C000E0007080388',X'01C800F800780078',
+     A X'03F8000000000000',
+C ...          DC    XL1'0F'                                         150 DIRA
+     A X'000008000C000600',X'0600030003000180',X'019000D000D00670',
+     A X'01F0003000000000',
+C ...          DC    XL1'10'                                         160 DIRA
+     A X'0000060006000300',X'0300010001800080',X'00C80248016100F0',
+     A X'0070003000100000',
+C ...          DC    XL1'11'                                         170 DIRA
+     A X'0000020003000300',X'0100018001800180',X'008000C804C802D0',
+     A X'001000E000400000',
+C ...          DC    XL1'12'                                         180 DIRA
+     A X'0000018001800180',X'0180018001800180',X'0180018011880990',
+     A X'07E003C001800000',
+C ...          DC    XL1'13'                                         190 DIRA
+     A X'0000004000C000C0',X'0080018001800180',X'01000B0003200B40',
+     A X'0780070002000000',
+C ...          DC    XL1'14'                                         200 DIRA
+     A X'00000060006000C0',X'00C0002001800100',X'1300124016800F00',
+     A X'0E000C0008000000' /
+
+
+      DATA     KDF_39C     /
+C ...          DC    XL1'15'                                         210 DIRA
+     A X'0000001000300060',X'006000C000C00180',X'09800B000B000E60',
+     A X'0F800E0000000000',
+C ...          DC    XL1'16'                                         220 DIRA
+     A X'000000000008001C',X'0038007001E011C0',X'13801F001E001E00',
+     A X'1FC0000000000000',
+C ...          DC    XL1'17'                                         230 DIRA
+     A X'000000000008001C',X'0038007001E011C0',X'13801F001E001E00',
+     A X'1FC0000000000000',
+C ...          DC    XL1'18'                                         240 DIRA
+     A X'0000000000000000',X'0006081C087811E0',X'17801E0038003F00',
+     A X'0000000000000000',
+C ...          DC    XL1'19'                                         250 DIRA
+     A X'0000000000000000',X'00000006021E0478',X'09C01F003C007800',
+     A X'0F00000000000000',
+C ...          DC    XL1'1A'                                         260 DIRA
+     A X'0000000000000000',X'00000400080C10F8',X'3FE07E0030000C00',
+     A X'0200000000000000',
+C ...          DC    XL1'1B'                                         270 DIRA
+     A X'0000000000000400',X'0800100030007FFE',X'7FFE300010000800',
+     A X'0400000000000000',
+C ...          DC    XL1'1C'                                         280 DIRA
+     A X'0000000000000200',X'0C0030007E003FE0',X'10F8080C04000000',
+     A X'0000000000000000',
+C ...          DC    XL1'1D'                                         290 DIRA
+     A X'0000000000000700',X'78003C001F0009C0',X'0478021E00060000',
+     A X'0000000000000000',
+C ...          DC    XL1'1E'                                         300 DIRA
+     A X'0000000000000000',X'3F0038003E001780',X'11E00878081C0006',
+     A X'0000000000000000' /
+
+
+      DATA     KDF_39D     /
+C ...          DC    XL1'1F'                                         310 DIRA
+     A X'0000000000001FC0',X'1E001E001F001380',X'11C010E000700038',
+     A X'001C000800000000',
+C ...          DC    XL1'20'                                         320 DIRA
+     A X'0000000000001FC0',X'1E001E001F001380',X'11C010E000700038',
+     A X'001C000800000000',
+C ...          DC    XL1'21'                                         330 DIRA
+     A X'000000000C000F80',X'0E600B000B000980',X'018000C000C00060',
+     A X'0060003000100000',
+C ...          DC    XL1'22'                                         340 DIRA
+     A X'000008000C000E00',X'0F00168012401300',X'01000180008000C0',
+     A X'00C0006000600000',
+C ...          DC    XL1'23'                                         350 DIRA
+     A X'0000020007000780',X'0B400B2013000100',X'0180018001800080',
+     A X'00C000C000400000',
+C ...          DC    XL1'24'                                         360 DIRA
+     A X'0000018003C007E0',X'0990118801800180',X'0180018001800180',
+     A X'0180018001800000' /
+
+       END
