@@ -71,24 +71,27 @@ for dir in $dlist; do
           if [ -f ./libgph_${version}_8.a ] ; then
               rm -f ./libgph_${version}_8.a
           fi
-          makelibgph.sh
+          make
           cp ./libgph_${version}_8.a  ../../$1
+          make clean
           ;;
        gphfont)
           cd ../$dir
           if [ -f ./libgphfont_${version}_8.a ] ; then
               rm -f ./libgphfont_${version}_8.a
           fi
-          makelibgphfont.sh
+          make
           cp ./libgphfont_${version}_8.a  ../../$1
+          make clean
           ;;
        gphcntr)
           cd ../$dir
           if [ -f ./libgphcntr_${version}_8.a ] ; then
               rm -f ./libgphcntr_${version}_8.a
           fi
-          makelibgphcntr.sh
+          make
           cp ./libgphcntr_${version}_8.a  ../../$1
+          make clean
           ;;
        util)
           cd ../$dir
