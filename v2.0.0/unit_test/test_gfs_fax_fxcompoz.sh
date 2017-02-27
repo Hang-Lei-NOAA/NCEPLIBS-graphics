@@ -98,4 +98,5 @@ sleep 2
 cp ras.out crd.out 00HR_850MB_HGT_WIND.gfs_fax_anl_00.gif $output
 
 echo " Output files from FXCOMPOZ : "
+ls -l $output
 echo " "

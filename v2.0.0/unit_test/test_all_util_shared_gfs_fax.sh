@@ -47,6 +47,8 @@ mkdir -p $data
 cp /usrx/local/nceplibs/fax_data/*  $data
 cd $data
 
+echo " please wait .....  "
+echo " "
 echo ${PDY}${cyc} > upaprep.input
 
 export FORT9=graph_upaprep.ft9.mrcontrl
@@ -405,7 +407,7 @@ grep WNDAFT_g identifyfax.tbl | read Keyword sub00 sub06 sub12 sub18 gif toc prt
 if [ ${cyc} = '00' ]; then submn=$sub00; fi
 if [ ${cyc} = '12' ]; then submn=$sub12; fi
 submn=2929
-echo bkwndalf.00 2929 WNDS_ALOFT_GR_14_24_34 WNDAFT_g YES NO NO gfs_fax_anl_00 x
+# echo bkwndalf.00 2929 WNDS_ALOFT_GR_14_24_34 WNDAFT_g YES NO NO gfs_fax_anl_00 x
 export FAXOUT submn name Keyword gif toc prt jobn lprt
 export INFILE=bkwndalf.00
 export subnn=2929
