@@ -1,0 +1,91 @@
+       BLOCK DATA FONT17
+C                                                3-OCT-1995/DSS
+C
+C          DATA SET PHCHARAC   AT LEVEL 003 AS OF 05/11/93
+C$$$  SUBPROGRAM DOCUMENTATION BLOCK
+C                .      .    .                                       .
+C SUBPROGRAM:    FONT17      SYMBOL DEFS (FONT17) FOR PRTITL
+C   PRGMMR: SHIMOMURA        ORG: NMC41       DATE:95-10-03
+C
+C ABSTRACT: FONT17 -- CHARACTER SET_17 DEFINITION;
+C   IN RASTER-GRAPHICS, BIT-MAPPED FORM;
+C      LOOK17 OR  CD17=(6X-20) 1 VERTICAL BAR
+C
+C PROGRAM HISTORY LOG:
+C   ??-??-??  ORIGINAL AUTHOR: GLORIA DENT (BEFORE 1974)
+C   93-05-11  LILLY UPDATES DOCBLOCK.
+C   93-06-03  HENRICHSEN
+C   93-10-26  SHIMOMURA -- CONVERTING FROM IBM-ASM INTO CRAY-FORTRAN
+C                          BLOCK DATA;
+C                          CHANGED THE ORDER FROM EBCDIC TO ASCII
+C                          SORTING SEQ.
+C
+C USAGE:   linkage-edit the member=PHCHARAC 
+C   INPUT ARGUMENT LIST:
+C
+C     ... THIS MEMBER IS NOT CALLED; THE OBJECT CODE IS LINKAGE-EDITED
+C
+C REMARKS: 
+C     ... THE IBM-ASM VERSION IS LIKE A BLOCK DATA SUBPROGRAM 
+C     ...                     WHICH DEFINED COMMON /CHARAC/
+C     ... THIS CRAY-FORTRAN VERSION DEFINES ONLY ONE OF THE 50 FONTS,
+C     ...    NAMELY, FONT17  OR  CD17=(6X-20) 1 VERTICAL BAR
+C     ... COMMON /FONS_17/ KHTITLE, NUMSET,NCHS_17,NWPC_17,KIXTB_17,
+C     ...1                 KDF_17
+C             
+C
+C ATTRIBUTES:
+C   LANGUAGE: CRAY FORTRAN
+C   MACHINE:  CRAY4
+C
+C$$$
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 04/17/93
+C          DATA SET PHCHARAC   AT LEVEL 001 AS OF 06/05/89
+C          DATA SET PHCHARAC   AT LEVEL 006 AS OF 10/03/85
+C ...         TITLE 'COMMON /CHARAC/DEFSYM -- SYMBOL DEFS FOR PRTITL'
+C ...         CHARAC   CSECT
+C
+C   THIS CHARH SET IS PHCHARAC FOUND ON DPH.PAN.SOURCE.A
+C   UPDATED 03 OCT 1985 BY PETER HENRICHSEN TO :
+C    ADD NOAA DUCK AND MEDIUM DUCK TO CD10.
+C    ADD 24 DOT DUCKLING TO CD1.
+C    ADD ALPHABET, ' ', '.' AND '/' TO CD19.
+C   MODIFIED BY GLORIA AND PETER TO ADD TROPICAL STORM SYMBOL IN CD10
+C   01 OCT 1982.
+C
+C
+C      LOOK17 OR  CD17=(6X-20) 1 VERTICAL BAR
+C
+       COMMON /FONS_17/ KHTITLE_17,NUMSET_17,NCHS_17,NWPC_17,KIXTB_17,
+     1                  KDF_17
+       CHARACTER*8    KHTITLE_17
+       INTEGER*8    NUMSET_17
+       INTEGER*8    NWPC_17
+       INTEGER*8    NCHS_17
+
+       CHARACTER*8    KIXTB_17(8)
+
+       INTEGER*8    KDF_17(3,1)
+
+
+C      LOOK17 OR  CD17=(6X-20) 1 VERTICAL BAR
+C ...  COMMON /FONS_17/ KHTITLE_17,NUMSET_17,NCHS_17,NWPC_17,KIXTB_17,KDF_17
+       DATA    KHTITLE_17 / "VERT_BAR" /
+       DATA    NUMSET_17  / 17 /
+       DATA    NWPC_17    /  3 /        !... WORDS PER CHARACTER
+       DATA    NCHS_17    /  1 /        !... NO. OF CHAR DEFS IN SET_17
+C                     ...   COL 12345678
+       DATA         KIXTB_17 / "A       ",
+     2                         "        ",
+     3                         "        ",
+     4                         "        ",
+     5                         "        ",
+     6                         "        ",
+     7                         "        ",
+     8                         "        " /
+
+       DATA         KDF_17   /
+C ... CD17     DC    CL1'A'
+     A X'FCFCFCFCFCFCFCFC',X'FCFCFCFCFCFCFCFC',X'FCFCFCFC00000000' /
+
+       END

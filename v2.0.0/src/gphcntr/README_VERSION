@@ -1,0 +1,117 @@
+This is version v.1.0.2 
+
+###
+Differences between v.1.0.1 and v.1.0.2 are as follows:
+determined by Krishna Kumar/NCO/SIB/Geo Science Technologies Inc.
+April 22, 2013
+###
+
+-----------------------------------------------------------------------------
+Differences between cntor.f and /nwprod/lib/sorc/graphics/gphcntr/cntor.f Begins ******
+653,654c653,654
+< C          LINEP = LINEVU
+< C          LINEVU = NC
+---
+>            LINEP = LINEVU
+>            LINEVU = NC
+664c664
+< C     LINEP = LINEVU
+---
+>       LINEP = LINEVU
+
+ ####################################################
+ The two files exist with the differences found above
+ ####################################################
+
+Differences between cntor.f and /nwprod/lib/sorc/graphics/gphcntr/cntor.f Ends   ******
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+Differences between barb2ras.F and /nwprod/lib/sorc/graphics/gphcntr/barb2ras.F Begins ******
+
+ ###################################################
+ The two files DO NOT exist because
+ A file or directory in the path name does not exist
+ ###################################################
+
+Differences between barb2ras.F and /nwprod/lib/sorc/graphics/gphcntr/barb2ras.F Ends   ******
+-----------------------------------------------------------------------------
+
+Differences between barb2ras.F and /nwprod/lib/sorc/graphics/gphcntr/barb2ras.f Starts *****
+1,3d0
+< #if !defined (_BIG_ENDIAN) && !defined (_LITTLE_ENDIAN)
+< #error 'Neither _BIG_ENDIAN nor _LITTLE_ENDIAN is defined.'
+< #endif
+125,129d121
+< #if defined (_LITTLE_ENDIAN)
+<       LOGICAL FIRST_ENTRY
+<       DATA FIRST_ENTRY/.TRUE./
+< #endif
+<       SAVE
+131,138c123,125
+< #if defined (_LITTLE_ENDIAN)
+<       IF (FIRST_ENTRY) THEN
+<         DO I = 1, 36
+<           CALL SWAP_BYTES_IN_PLACE (IBARBDEF(1,I), 8_8, 9_8)
+<         ENDDO
+<         ENDDO
+<         FIRST_ENTRY = .FALSE.
+<       ENDIF
+< #endif
+---
+> 
+> 
+>       SAVE
+139a127
+> 
+
+-----------------------------------------------------------------------------
+Differences between irvr.F and /nwprod/lib/sorc/graphics/gphcntr/irvr.F Begins ******
+57c57
+< #if defined (_LITTLE_ENDIAN)
+---
+> #if defined(_LITTLE_ENDIAN)
+61c61
+<         CALL SWAP_BYTES_IN_PLACE (CTABLE(1), 8_8, 32)
+---
+>        CALL SWAP_BYTES_IN_PLACE (CTABLE(1), 8_8, 32)
+84c84
+<          CALL SWAP_BYTES_IN_PLACE (JWORK, 8_8, 1_8)
+---
+>        CALL SWAP_BYTES_IN_PLACE (JWORK, 8_8, 1)
+88c88
+<          CALL SWAP_BYTES_IN_PLACE (JWORK, 8_8, 1_8)
+---
+>        CALL SWAP_BYTES_IN_PLACE (JWORK, 8_8, 1)
+93c93
+<        CALL SWAP_BYTES_IN_PLACE (JACC, 8_8, 1_8)
+---
+>        CALL SWAP_BYTES_IN_PLACE (JACC, 8_8, 1)
+
+ ####################################################
+ The two files exist with the differences found above
+ ####################################################
+
+Differences between irvr.F and /nwprod/lib/sorc/graphics/gphcntr/irvr.F Ends   ******
+-----------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------
+Differences between wrborz.F and /nwprod/lib/sorc/graphics/gphcntr/wrborz.F Begins ******
+98c98
+<        CALL SWAP_BYTES_IN_PLACE (IACC, 8_8, 1_8)
+---
+>        CALL SWAP_BYTES_IN_PLACE (IACC, 8_8, 1)
+123c123
+<        CALL SWAP_BYTES_IN_PLACE (IACC, 8_8, 1_8)
+---
+>        CALL SWAP_BYTES_IN_PLACE (IACC, 8_8, 1)
+
+ ####################################################
+ The two files exist with the differences found above
+ ####################################################
+
+Differences between wrborz.F and /nwprod/lib/sorc/graphics/gphcntr/wrborz.F Ends   ******
+-----------------------------------------------------------------------------
+
+
+

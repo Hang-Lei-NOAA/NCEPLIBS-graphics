@@ -1,0 +1,18 @@
+04/22/2013 - V. Krishna Kumar/NCO/SIB/Geo Science Technologies Inc. noticed the following warning
+messages about routine PACK8B when compiling this library.
+
+ifort -c -D_LITTLE_ENDIAN -O -g -traceback -C -integer-size 64 -real-size 64 -assume byterecl -convert big_endian -assume nobscc -assume noold_ldout_format pack8b.f
+
+
+pack8b.f(404): warning #6371: A jump into a block from outside the block may have occurred.   [430]
+       GO TO KRETRN,(340,370,430,460,475,510)
+-----------------------------^
+pack8b.f(404): warning #6371: A jump into a block from outside the block may have occurred.   [460]
+       GO TO KRETRN,(340,370,430,460,475,510)
+---------------------------------^
+pack8b.f(404): warning #6371: A jump into a block from outside the block may have occurred.   [475]
+       GO TO KRETRN,(340,370,430,460,475,510)
+-------------------------------------^
+
+
+
