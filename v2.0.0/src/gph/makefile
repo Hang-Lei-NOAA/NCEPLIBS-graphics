@@ -61,7 +61,7 @@ libgph_v2.0.0_8.a: $(OBJ)
 	ranlib $@
 
 clean:
-	/bin/rm -f libgph_v2.0.0_8.a *.o
+	rm -f *.o
 
 putlab.o: putlab.F
 	$(FC) -c $(FFLAGS)    putlab.F

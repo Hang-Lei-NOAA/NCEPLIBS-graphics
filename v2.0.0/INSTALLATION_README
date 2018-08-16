@@ -1,8 +1,12 @@
 
-1. Check out the source codes graphics library v2.0.0 from EMC SVN
+1. Check out the source codes graphics library v2.0.0 from EMC VLAB NCEPLIBS
    a. cd src
-   b. run compile_all_graphics_lib_cray_intel.sh intel 
-      (The graphic library builds  with sy andy_bridge)
-     or 
-      run compile_all_graphics_lib_cray_intel.sh cray 
-      (The graphic library builds with cray haswell)
+   b. Installation on WCOSS machine:
+      1. DELL 
+         compile_all_graphics_lib_wcoss.sh   dell
+      2. CRAY
+         compile_all_graphics_lib_wcoss.sh   intel
+         (The graphic library builds with intel_sandybridge)
+        OR
+         compile_all_graphics_lib_wcoss.sh   cray
+         (The graphic library builds with cray haswell)
