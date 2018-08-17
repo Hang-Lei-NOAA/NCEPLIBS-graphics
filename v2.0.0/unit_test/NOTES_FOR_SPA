@@ -1,3 +1,8 @@
+                  UNIT TEST ON DELL
+-On DELL
 
-Unit_test for graphics libraries are same in util_shared.v1.0.5.
-
+Unit_test for graphics libraries are in util_shared.v1.0.8 on DELL
+#
+#   This is a test version of UTIL_SHARED.v1.0.8 on DELL
+#
+module load dev/util_shared/1.0.8
