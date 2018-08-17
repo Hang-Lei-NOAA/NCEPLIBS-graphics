@@ -25,7 +25,7 @@ conflict $lname
 #       in an alternate location, please comment this section out and set the following variable:
 #         set NCEPLIBS (location of the directory that contains the library)
 global ModulesCurrentModulefile
-if { [ regexp {^(.*)/modulefiles/.*$} $ModulesCurrentModulefile -> NCEPLIBS ] != 1 } {
+if { [ regexp {(/usrx/local/nceplibs/dev+)} $ModulesCurrentModulefile -> NCEPLIBS ] != 1 } {
   puts stderr "Error: unable to determine library's root directory"
   break
 }
