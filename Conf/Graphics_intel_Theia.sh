@@ -1,8 +1,12 @@
 # *** for Theia (intel) ***
  module load intel/18.1.163
- module load impi/2018.0.1
- module load dev/nemsio/2.2.4
- module load dev/nemsiogfs/2.2.0
+ module load dev/graphics/2.0.0
+ module use -a /apps/modules/modulefiles
+ module load gempak/7.4.2
+
+ DECODINC=./include
+ [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.4.2
+ [[ $GEMINC == "" ]] && export GEMINC=$GEMPAK/include
 
  export CC=icc
  export FC=ifort
@@ -14,7 +18,7 @@
 
  export DEBUG="-g -O0"
  export CFLAGS="-O3 -DUNDERSCORE -DLINUX -fPIC"
- export FFLAGS="-O3 -xHOST -traceback -fPIC"
+ export FFLAGS="-D_LITTLE_ENDIAN -O3 -traceback -convert big_endian -assume byterecl -assume noold_ldout_format -C -fPIC"
  export CPPFLAGS="-P -traditional-cpp"
  export MPICFLAGS="-O3 -DUNDERSCORE -DLINUX -fPIC"
  export MPIFFLAGS="-O3 -xHOST -traceback -fPIC"
@@ -26,7 +30,9 @@
  export CPPDEFS=""
  export CFLAGSDEFS=""
  export FFLAGSDEFS=""
+ export DECOD_UTINC="-I${DECODINC} -I${GEMINC} -I${OS_INC}"
 
  export USECC=""
  export USEFC="YES"
- export DEPS="NEMSIO $NEMSIO_VER"
+ export DEPS=""
+ export DECOD_UTDEPS="GEMPAK $GEMPAK_VER"

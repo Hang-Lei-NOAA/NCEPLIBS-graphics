@@ -75,6 +75,7 @@ set -x
    cd gph
    make clean LIB=$gphLib8
    FFLAGS8="$I8R8 $FFLAGS"
+   USECC="YES"
    collect_info gph 8 OneLine8 LibInfo8
    gphInfo8=gph_info_and_log8.txt
    $debg && make debug FFLAGS="$FFLAGS8" LIB=$gphLib8 &> $gphInfo8 \
@@ -89,6 +90,7 @@ set -x
    cd gphfont
    make clean LIB=$gphfontLib8
    FFLAGS8="$I8R8 $FFLAGS"
+   USECC=""
    collect_info gphfont 8 OneLine8 LibInfo8
    gphfontInfo8=gphfont_info_and_log8.txt
    $debg && make debug FFLAGS="$FFLAGS8" LIB=$gphfontLib8 &> $gphfontInfo8 \
@@ -103,6 +105,7 @@ set -x
    cd gphcntr
    make clean LIB=$gphcntrLib8
    FFLAGS8="$I8R8 $FFLAGS"
+   USECC=""
    collect_info gphcntr 8 OneLine8 LibInfo8
    gphcntrInfo8=gphcntr_info_and_log8.txt
    $debg && make debug FFLAGS="$FFLAGS8" LIB=$gphcntrLib8 &> $gphcntrInfo8 \
@@ -117,6 +120,7 @@ set -x
    cd w3g
    make clean LIB=$w3gLib8
    FFLAGS8="$I8R8 $FFLAGS"
+   USECC="YES"
    collect_info w3g 8 OneLine8 LibInfo8
    w3gInfo8=w3g_info_and_log8.txt
    $debg && make debug FFLAGS="$FFLAGS8" LIB=$w3gLib8 &> $w3gInfo8 \
@@ -130,6 +134,7 @@ set -x
  echo
    cd util
    make clean LIB=$utilLib
+   USECC="YES"
    collect_info util - OneLine LibInfo
    utilInfo=util_info_and_log.txt
    $debg && make debug LIB=$utilLib &> $utilInfo \
@@ -144,6 +149,7 @@ set -x
    cd decod_ut
    make clean LIB=$decod_utLib
    DEPS=$DECOD_UTDEPS
+   USECC="YES"
    collect_info decod_ut - OneLine LibInfo
    decod_utInfo=decod_ut_info_and_log.txt
    $debg && make debug FFLAGS="$DECOD_UTINC $FFLAGS" \
