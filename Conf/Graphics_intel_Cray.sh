@@ -1,11 +1,11 @@
 # *** for WCOSS Cray (intel) ***
+ module purge
  module load intel/18.1.163
- module load graphics/v2.0.0
-## module use -a /apps/modules/modulefiles
-## module load gempak/7.4.2
+ module load graphics-intel/2.0.0
+ module load gempak/7.3.1
 
  DECODINC=./include
- [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.4.2
+ [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.3.1
  [[ $GEMINC == "" ]] && export GEMINC=$GEMPAK/include
 
  export CC=icc

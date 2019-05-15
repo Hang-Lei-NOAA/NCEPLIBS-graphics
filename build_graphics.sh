@@ -32,10 +32,10 @@
    [[ ${3,,} == localinstallonly ]] && { local=true; inst=true; skip=true; }
  }
 
- (( $# == 0 )) && {
-   echo "*** Usage: $0 wcoss|dell|cray|theia|intel_general|gnu_general [debug|build] [install[only]]"
-   exit 1
- }
+ source ./Conf/Collect_info.sh
+ source ./Conf/Gen_cfunction.sh
+ source ./Conf/Reset_version.sh
+
  if [[ ${sys} == "intel_general" ]]; then
    sys6=${sys:6}
    source ./Conf/Graphics_${sys:0:5}_${sys6^}.sh
@@ -49,9 +49,6 @@
    echo "??? GRAPHICS: module/environment not set."
    exit 1
  }
-
- source ./Conf/Collect_info.sh
- source ./Conf/Gen_cfunction.sh
 
 set -x
  gphLib8=$(basename ${GPH_LIB8})
@@ -165,49 +162,66 @@ set -x
 #
 #     Install libraries and source files 
 #
+   SRC_DIR=
    cd gph
+   $local && { LIB_DIR8=../..; } \
+          || {
+              LIB_DIR8=$(dirname $GPH_LIB8)
+              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
+             }
    make clean LIB=
-   $local && LIB_DIR8=../.. || LIB_DIR8=$(dirname ${GPH_LIB8})
-   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make install LIB=$gphLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd gphfont
+   $local && { LIB_DIR8=../..; } \
+          || {
+              LIB_DIR8=$(dirname $GPHFONT_LIB8)
+              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
+             }
    make clean LIB=
-   $local && LIB_DIR8=../.. || LIB_DIR8=$(dirname ${GPHFONT_LIB8})
-   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make install LIB=$gphfontLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd gphcntr
+   $local && { LIB_DIR8=../..; } \
+          || {
+              LIB_DIR8=$(dirname $GPHCNTR_LIB8)
+              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
+             }
    make clean LIB=
-   $local && LIB_DIR8=../.. || LIB_DIR8=$(dirname ${GPHCNTR_LIB8})
-   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make install LIB=$gphcntrLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd w3g
    make clean LIB=
-   $local && LIB_DIR8=../.. || LIB_DIR8=$(dirname ${W3G_LIB8})
-   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
+   $local && { LIB_DIR8=../..; } \
+          || {
+              LIB_DIR8=$(dirname $W3G_LIB8)
+              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
+             }
    make install LIB=$w3gLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd util
    make clean LIB=
-   $local && LIB_DIR=../.. || LIB_DIR=$(dirname ${UTIL_LIB})
-   [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+   $local && { LIB_DIR=../..; } \
+          || {
+              LIB_DIR=$(dirname $UTIL_LIB)
+              [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+             }
    make install LIB=$utilLib LIB_DIR=$LIB_DIR
    cd ..
 
-   SRC_DIR=$GRAPHICS_SRC
-   $local && SRC_DIR=
-   [ -d $SRC_DIR ] || mkdir -p $SRC_DIR
-
    cd decod_ut
    make clean LIB=
-   $local && LIB_DIR=../.. || LIB_DIR=$(dirname ${DECOD_UT_LIB})
-   [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+   $local && { LIB_DIR=../..; } \
+          || {
+              LIB_DIR=$(dirname $DECOD_UT_LIB)
+              SRC_DIR=$GRAPHICS_SRC
+              [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+              [ -z $SRC_DIR ] || { [ -d $SRC_DIR ] || mkdir -p $SRC_DIR; }
+             }
    make install LIB=$decod_utLib LIB_DIR=$LIB_DIR SRC_DIR=$SRC_DIR
    cd ..
  }

@@ -1,10 +1,23 @@
 # *** for WCOSS IBM phase1/phase2 (intel) ***
+ module purge
  module load ics/17.0.3
- module load graphics/v2.0.0
+
+# module "graphics" not available, use general instead
+ ANCHORDIR=..
+ export COMP=ips
+ export GRAPHICS_VER=v2.0.0
+ export GRAPHICS_SRC=
+ export GPH_LIB8=$ANCHORDIR/libgph_${GRAPHICS_VER}_8.a
+ export GPHFONT_LIB8=$ANCHORDIR/libgphfont_${GRAPHICS_VER}_8.a
+ export GPHCNTR_LIB8=$ANCHORDIR/libgphcntr_${GRAPHICS_VER}_8.a
+ export W3G_LIB8=$ANCHORDIR/libw3g_${GRAPHICS_VER}_8.a
+ export UTIL_LIB=$ANCHORDIR/libutil_${GRAPHICS_VER}.a
+ export DECOD_UT_LIB=$ANCHORDIR/libdecod_ut_${GRAPHICS_VER}.a
+
  module load gempak/ncep
 
  DECODINC=./include
- [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.4.2
+ [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=ncep
  [[ $GEMINC == "" ]] && export GEMINC=$GEMPAK/include
 
  export CC=icc

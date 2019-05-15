@@ -1,12 +1,12 @@
 # *** for WCOSS Dell (intel) ***
+ module purge
  module load EnvVars/1.0.2
  module load ips/18.0.1.163
  module load graphics/2.0.0
-## module use -a /apps/modules/modulefiles
-## module load gempak/7.4.2
+ module load gempak/7.3.1
 
  DECODINC=./include
- [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.4.2
+ [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.3.1
  [[ $GEMINC == "" ]] && export GEMINC=$GEMPAK/include
 
  export CC=icc
