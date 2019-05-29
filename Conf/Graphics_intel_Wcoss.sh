@@ -29,12 +29,12 @@
  export MPIFC=mpiifort
 
  export DEBUG="-g -O0"
- export CFLAGS="-O3 -fPIC"
+ export CFLAGS="-O3 -std=c99 -fPIC"
  export FFLAGS="-O3 -traceback -convert big_endian -assume byterecl -assume noold_ldout_format -C -fPIC"
  export FPPCPP="-cpp"
  export FREEFORM="-free"
  export CPPFLAGS="-P -traditional-cpp"
- export MPICFLAGS="-O3 -fPIC"
+ export MPICFLAGS="-O3 -std=c99 -fPIC"
  export MPIFFLAGS="-O3 -fPIC"
  export MODPATH="-module "
  export I4R4="-integer-size 32 -real-size 32"
@@ -44,7 +44,7 @@
  export CPPDEFS=""
  export CFLAGSDEFS="-DUNDERSCORE -DLINUX"
  export FFLAGSDEFS="-D_LITTLE_ENDIAN"
- export DECOD_UTINC="-I${DECODINC} -I${GEMINC} -I${OS_INC}"
+ export DECOD_UTINC="-I${DECODINC} -I${OS_INC} -I${GEMINC}"
 
  export USECC=""
  export USEFC="YES"
