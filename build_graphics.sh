@@ -1,37 +1,6 @@
 #!/bin/sh
 
- (( $# == 0 )) && {
-   echo "*** Usage: $0 wcoss|dell|cray|theia|intel_general|gnu_general [debug|build] [[local]install[only]]" >&2
-   exit 1
- }
-
- sys=${1,,}
- [[ $sys == wcoss || $sys == dell || $sys == cray ||\
-    $sys == theia || $sys == intel_general || $sys == gnu_general ]] || {
-   echo "*** Usage: $0 wcoss|dell|cray|theia|intel_general|gnu_general [debug|build] [[local]install[only]]" >&2
-   exit 1
- }
- debg=false
- inst=false
- skip=false
- local=false
- (( $# > 1 )) && {
-   [[ ${2,,} == build ]] && debg=false
-   [[ ${2,,} == debug ]] && debg=true
-   [[ ${2,,} == install ]] && inst=true
-   [[ ${2,,} == localinstall ]] && { local=true; inst=true; }
-   [[ ${2,,} == installonly ]] && { inst=true; skip=true; }
-   [[ ${2,,} == localinstallonly ]] && { local=true; inst=true; skip=true; }
- }
- (( $# > 2 )) && {
-   [[ ${3,,} == build ]] && debg=false
-   [[ ${3,,} == debug ]] && debg=true
-   [[ ${3,,} == install ]] && inst=true
-   [[ ${3,,} == localinstall ]] && { local=true; inst=true; }
-   [[ ${3,,} == installonly ]] && { inst=true; skip=true; }
-   [[ ${3,,} == localinstallonly ]] && { local=true; inst=true; skip=true; }
- }
-
+ source ./Conf/Analyse_args.sh
  source ./Conf/Collect_info.sh
  source ./Conf/Gen_cfunction.sh
  source ./Conf/Reset_version.sh
@@ -168,64 +137,68 @@ set -x
 #
    SRC_DIR=
    cd gph
-   $local && { LIB_DIR8=../..; } \
-          || {
-              LIB_DIR8=$(dirname $GPH_LIB8)
-              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
-             }
+   $local && instloc=../..
+   [[ $instloc == --- ]] && instloc=$(dirname $GPH_LIB8)
+   LIB_DIR8=$instloc
+   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make clean LIB=
    make install LIB=$gphLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd gphfont
-   $local && { LIB_DIR8=../..; } \
-          || {
-              LIB_DIR8=$(dirname $GPHFONT_LIB8)
-              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
-             }
+   $local && instloc=../..
+   [[ $instloc == --- ]] && instloc=$(dirname $GPHFONT_LIB8)
+   LIB_DIR8=$instloc
+   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make clean LIB=
    make install LIB=$gphfontLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd gphcntr
-   $local && { LIB_DIR8=../..; } \
-          || {
-              LIB_DIR8=$(dirname $GPHCNTR_LIB8)
-              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
-             }
+   $local && instloc=../..
+   [[ $instloc == --- ]] && instloc=$(dirname $GPHCNTR_LIB8)
+   LIB_DIR8=$instloc
+   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make clean LIB=
    make install LIB=$gphcntrLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd w3g
+   $local && instloc=../..
+   [[ $instloc == --- ]] && instloc=$(dirname $W3G_LIB8)
+   LIB_DIR8=$instloc
+   [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
    make clean LIB=
-   $local && { LIB_DIR8=../..; } \
-          || {
-              LIB_DIR8=$(dirname $W3G_LIB8)
-              [ -d $LIB_DIR8 ] || mkdir -p $LIB_DIR8
-             }
    make install LIB=$w3gLib8 LIB_DIR=$LIB_DIR8
    cd ..
 
    cd util
    make clean LIB=
-   $local && { LIB_DIR=../..; } \
-          || {
-              LIB_DIR=$(dirname $UTIL_LIB)
-              [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
-             }
+   $local && instloc=../..
+   [[ $instloc == --- ]] && instloc=$(dirname $UTIL_LIB)
+   LIB_DIR=$instloc
+   [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
    make install LIB=$utilLib LIB_DIR=$LIB_DIR
    cd ..
 
    cd decod_ut
    make clean LIB=
-   $local && { LIB_DIR=../..; } \
-          || {
-              LIB_DIR=$(dirname $DECOD_UT_LIB)
-              SRC_DIR=$GRAPHICS_SRC
-              [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
-              [ -z $SRC_DIR ] || { [ -d $SRC_DIR ] || mkdir -p $SRC_DIR; }
-             }
+   $local && {
+     instloc=../..
+     LIB_DIR=$instloc
+     SRC_DIR=
+   } || {
+     [[ $instloc == --- ]] && {
+       LIB_DIR=$(dirname $DECOD_UT_LIB)
+       SRC_DIR=$GRAPHICS_SRC
+     } || {
+       LIB_DIR=$instloc
+       SRC_DIR=$instloc/src
+       [[ $instloc == ../.. ]] && SRC_DIR=
+     }
+     [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+     [ -z $SRC_DIR ] || { [ -d $SRC_DIR ] || mkdir -p $SRC_DIR; }
+   }
    make install LIB=$decod_utLib LIB_DIR=$LIB_DIR SRC_DIR=$SRC_DIR
    cd ..
  }
