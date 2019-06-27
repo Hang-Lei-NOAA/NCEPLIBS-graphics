@@ -1,6 +1,7 @@
 # *** for WCOSS Cray (intel) ***
  module purge
- module load intel/18.1.163
+ module load PrgEnv-intel
+ module load craype-sandybridge
  module load graphics-intel/2.0.0
  module load gempak/7.3.1
 
@@ -8,22 +9,22 @@
  [[ $GEMPAK_VER == "" ]] && export GEMPAK_VER=v7.3.1
  [[ $GEMINC == "" ]] && export GEMINC=$GEMPAK/include
 
- export CC=icc
- export FC=ifort
+ export CC=cc
+ export FC=ftn
  export CPP=cpp
  export OMPCC="$CC -qopenmp"
  export OMPFC="$FC -qopenmp"
  export MPICC=mpiicc
  export MPIFC=mpiifort
 
- export DEBUG="-g -O0"
- export CFLAGS="-O3 -std=c99 -fPIC"
- export FFLAGS="-O3 -traceback -convert big_endian -assume byterecl -assume noold_ldout_format -C -fPIC"
+ export DEBUG="-g -traceback -O0"
+ export CFLAGS="-g -traceback -O3 -axCORE-AVX2 -std=c99 -fPIC"
+ export FFLAGS="-g -traceback -O3 -axCORE-AVX2 -convert big_endian -assume byterecl -assume noold_ldout_format -C -fPIC"
  export FPPCPP="-cpp"
  export FREEFORM="-free"
  export CPPFLAGS="-P -traditional-cpp"
- export MPICFLAGS="-O3 -std=c99 -fPIC"
- export MPIFFLAGS="-O3 -fPIC"
+ export MPICFLAGS="-g -traceback -O3 -axCORE-AVX2 -std=c99 -fPIC"
+ export MPIFFLAGS="-g -traceback -O3 -axCORE-AVX2 -fPIC"
  export MODPATH="-module "
  export I4R4="-integer-size 32 -real-size 32"
  export I4R8="-integer-size 32 -real-size 64"
